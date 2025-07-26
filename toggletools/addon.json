@@ -4,6 +4,7 @@
 	"tags": ["roleplay", "fun"],
 	"ignore": [
 		".kateproject",
-		".luarc.json"
+		".luarc.json",
+		"LICENSE"
 	]
 }
