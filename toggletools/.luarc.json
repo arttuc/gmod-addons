@@ -1,0 +1,4 @@
+{
+	"workspace": { "library": [ "/datadrive/LuaLS lisäosat/glua/" ] },
+	"runtime.version": "LuaJIT"
+}

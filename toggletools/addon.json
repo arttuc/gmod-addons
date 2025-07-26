@@ -1,0 +1,9 @@
+{
+	"title": "Toggle Tools (Remove Physics Gun & Tool Gun)",
+	"type": "tool",
+	"tags": ["roleplay", "fun"],
+	"ignore": [
+		".kateproject",
+		".luarc.json"
+	]
+}

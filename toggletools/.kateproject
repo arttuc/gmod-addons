@@ -1,0 +1,9 @@
+{
+  "name": "GMod Addon: Toggle Tools",
+  "files": [
+    {
+      "filters": ["*"],
+      "recursive": 10
+    }
+  ]
+}
