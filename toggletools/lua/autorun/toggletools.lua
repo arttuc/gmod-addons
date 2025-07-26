@@ -66,23 +66,21 @@ elseif SERVER then
 		end
 	end)
 
-	if GAMEMODE_NAME == "sandbox" then
-		gameevent.Listen("player_spawn")
-		hook.Add("player_spawn", "toggletools_memory", function(data)
-			local uid = data.userid
-			if disabledToolsPlayerTable[uid] then
-				timer.Simple(0.05, function()
-					local plr = Player(uid)
-					stripTools(plr)
-				end)
-			end
-		end)
+	gameevent.Listen("player_spawn")
+	hook.Add("player_spawn", "toggletools_memory", function(data)
+		local uid = data.userid
+		if disabledToolsPlayerTable[uid] then
+			timer.Simple(0.065, function()
+				local plr = Player(uid)
+				stripTools(plr)
+			end)
+		end
+	end)
 
-		gameevent.Listen("disconnect")
-		hook.Add("disconnect", "toggletools_disconnect", function(_, _, _, uid)
-			-- unset dtpt value for disconnected uid
-			disabledToolsPlayerTable[uid] = nil
-		end)
-	end
+	gameevent.Listen("disconnect")
+	hook.Add("disconnect", "toggletools_disconnect", function(_, _, _, uid)
+		-- unset dtpt value for disconnected uid
+		disabledToolsPlayerTable[uid] = nil
+	end)
 
 end
