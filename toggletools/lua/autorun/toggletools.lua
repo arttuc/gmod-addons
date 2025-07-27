@@ -6,6 +6,7 @@ if CLIENT then
 			title = "Toggle Tools",
 			icon = "icon64/toggletools.png",
 			init = function()
+				surface.PlaySound("garrysmod/ui_click.wav")
 				LocalPlayer():ConCommand("toggletools")
 			end
 		})
@@ -46,6 +47,7 @@ elseif SERVER then
 		for _, toolName in ipairs(tools) do
 			plr:Give(toolName, true)
 		end
+		plr:SelectWeapon(tools[1])
 	end
 
 	concommand.Add("toggletools", function(plr)
@@ -54,8 +56,8 @@ elseif SERVER then
 			return
 		end
 
-		if GAMEMODE_NAME ~= "sandbox" then
-			print(plr:GetName().." attempted to use toggletools while the server is on a non-sandbox gamemode!")
+		if not GAMEMODE.IsSandboxDerived then
+			plr:ChatPrint("Cannot use toggletools on non-sandbox gamemodes!")
 			return
 		end
 
@@ -64,7 +66,7 @@ elseif SERVER then
 		else
 			giveTools(plr)
 		end
-	end)
+	end, nil, "Toggle tools.")
 
 	gameevent.Listen("player_spawn")
 	hook.Add("player_spawn", "toggletools_memory", function(data)
