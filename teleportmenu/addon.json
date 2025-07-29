@@ -1,0 +1,11 @@
+{
+	"title": "Teleport Menu",
+	"type": "tool",
+	"tags": [],
+	"ignore": [
+		".kateproject",
+		".luarc.json",
+		"*.kra",
+		"LICENSE"
+	]
+}
